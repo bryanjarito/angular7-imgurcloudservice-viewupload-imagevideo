@@ -1,0 +1,9 @@
+<div class="mt-4 row">
+  <div class="col-md-6 col-sm-12">
+    <input #imageInput class="btn btn-secondary btn-block" type="file" (change)="imageInputChange(imageInput)" accept=".jpg, .jpeg, .mp4">
+  </div>
+  <div class="col-md-6 col-sm-12 mt-3 mt-md-0">
+    <button class="btn btn-success btn-block upload" (click)="addImage()">Add Image</button>
+  </div>
+</div>
+

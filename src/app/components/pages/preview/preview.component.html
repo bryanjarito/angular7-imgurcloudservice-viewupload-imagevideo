@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row mt-4 ml-0">
+    <a class="btn btn-primary text-white" routerLink="/" routerLinkActive="active">
+      <span class="txt"><i class="material-icons">keyboard_return</i> Go back</span>
+    </a>
+  </div>
+  <div class="row">
+    <div class="col-md-12 mt-2" *ngIf="file?.type == 'video/mp4'; else elseImage">
+      <vg-player>
+        <vg-overlay-play></vg-overlay-play>
+        <vg-buffering></vg-buffering>
+        
+        <vg-scrub-bar>
+          <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+          <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+        </vg-scrub-bar>
+        
+        <vg-controls>
+          <vg-play-pause></vg-play-pause>
+          <vg-playback-button></vg-playback-button>
+          
+          <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+          
+          <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
+          
+          <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+          <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+          
+          <vg-mute></vg-mute>
+          <vg-volume></vg-volume>
+          
+          <vg-fullscreen></vg-fullscreen>
+        </vg-controls>
+        
+        <video [vgMedia]="media" #media id="media" preload="auto" crossorigin>
+          <source src='{{ file?.link }}' type="video/mp4">
+        </video>
+        <span class="material-icons btn-rewind" (click)="backward(10)">fast_rewind</span>
+        <span class="material-icons btn-forward" (click)="forward(10)">fast_forward</span>
+      </vg-player>
+    </div>
+    <ng-template #elseImage>
+      <div class="col-md-12 mt-4 d-flex justify-content-center">
+        <img src='{{ file?.link }}' class="img-fluid"/>
+      </div>
+    </ng-template>
+  </div>
+</div>

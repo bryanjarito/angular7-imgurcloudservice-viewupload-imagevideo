@@ -1,0 +1,29 @@
+<div class="table-responsive">
+  <table class="table table-striped mt-5">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>File Name</th>
+        <th>File Type</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let file of files; let i = index">
+      <tr>
+        <td>{{i+1}}</td>
+        <td>{{file.link}}</td>
+        <td>{{file.type}}</td>
+        <td>
+          <div *ngIf="file.type == 'image/jpeg'; else video">
+            <a class="btn btn-primary btn-block text-white" (click)="preview(file.id)"><span class="txt"><i class="material-icons">image</i> Preview</span></a>
+          </div>
+          <ng-template #video>
+            <a class="btn btn-primary btn-block text-white" (click)="preview(file.id)"><span class="txt"><i class="material-icons">play_circle_filled</i> Watch</span></a>
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<router-outlet></router-outlet>
