@@ -21,7 +21,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Features
 
 * Allow uploading and persisting .jpg, .jpeg and .mp4 files
-    - imgur cloud service only allow videos less than 1 minute and file size 200MB
+    - imgur cloud service only allow videos less than 1 minute and file size 10MB
     - sample files stored at \src\assets\uploads 
 * Show a UI where users can upload new files, and show the list of files uploaded so far
 * Provide a way to "preview" the uploaded files.  For images, we want to see the image, and for mp4's, play the video
