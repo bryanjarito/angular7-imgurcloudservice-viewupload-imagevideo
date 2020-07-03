@@ -31,8 +31,3 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
     - Skipping forward and back 10 seconds
     - Pause/Play
     - Speed up/slow down playback
-
-
-## Bug
-
-Uploading video does not auto refresh table list - need manual refresh
