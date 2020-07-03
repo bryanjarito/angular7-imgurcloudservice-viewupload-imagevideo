@@ -41,8 +41,9 @@
     </div>
     <ng-template #elseImage>
       <div class="col-md-12 mt-4 d-flex justify-content-center">
-        <img src='{{ file?.link }}' class="img-fluid"/>
+        <img src='{{ file?.link }}' class="img-fluid loading"/>
       </div>
     </ng-template>
   </div>
 </div>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-loader" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>

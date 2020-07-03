@@ -6,6 +6,7 @@ import {VgCoreModule} from 'videogular2/compiled/core';
 import {VgControlsModule} from 'videogular2/compiled/controls';
 import {VgOverlayPlayModule} from 'videogular2/compiled/overlay-play';
 import {VgBufferingModule} from 'videogular2/compiled/buffering';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +15,6 @@ import { ListComponent } from './components/list/list.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { HeaderComponent } from './components/header/header.component';
 
-import { FileSelectDirective } from 'ng2-file-upload';
 import { HomeComponent } from './components/pages/home/home.component';
 
 import { DataService } from './services/data.service';
@@ -26,7 +26,6 @@ import { DataService } from './services/data.service';
     ListComponent,
     UploadComponent,
     HeaderComponent,
-    FileSelectDirective,
     HomeComponent
   ],
   imports: [
@@ -36,7 +35,8 @@ import { DataService } from './services/data.service';
     VgCoreModule,
     VgControlsModule,
     VgOverlayPlayModule,
-    VgBufferingModule
+    VgBufferingModule,
+    NgxSpinnerModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

@@ -14,13 +14,13 @@ interface ImageInfo{
  
 export class ImageService {
   private images:object[] = [];
-  private url: string = environment.uploadFileUrl;
   imageLink:any;
  
  
   constructor(
-    private http:HttpClient,
-    private sharedService: SharedService) { }
+    private http: HttpClient,
+    private sharedService: SharedService
+  ) { }
   
   async uploadImage(imageFile:File){
     let formData = new FormData();
@@ -31,17 +31,17 @@ export class ImageService {
       "Authorization": environment.bearer
     });
    
-    const imageData = await this.http.post(this.url, formData, {headers:header}).toPromise();
-    console.log(imageData)
+    const imageData = await this.http.post(environment.uploadFileUrl, formData, {headers:header}).toPromise();
     alert("File successfully uploaded!")
+
+    // this.imageLink = imageData['data'].link;
+    
+    // let newImageObject:ImageInfo = {
+    //   link:this.imageLink
+    // };
+    
+    // this.images.unshift(newImageObject);
+    
     this.sharedService.refreshFileList();
-    this.imageLink = imageData['data'].link;
- 
-    let newImageObject:ImageInfo = {
-      link:this.imageLink
-    };
- 
-    this.images.unshift(newImageObject);
- 
   }
 }

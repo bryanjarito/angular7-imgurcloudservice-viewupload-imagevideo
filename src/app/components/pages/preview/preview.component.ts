@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { VgMedia } from 'videogular2/compiled/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { NgxSpinnerService } from "ngx-spinner";
 import { environment } from '../../../../environments/environment';
 
 import CryptoJS from 'crypto-js';
@@ -24,7 +25,8 @@ export class PreviewComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
@@ -34,12 +36,17 @@ export class PreviewComponent implements OnInit {
       this.fileId = CryptoJS.enc.Utf8.stringify(word);
     });
 
-    this.restItemsServiceGetRestItems()
+    this.getData();
+  }
+
+  async getData() {
+    this.spinner.show();
+    await this.restItemsServiceGetRestItems()
     .subscribe(
       restItems => {
-        this.file = restItems['data'];
-      }
-    )
+        this.file = restItems['data']
+        this.spinner.hide();
+      })
   }
 
   restItemsServiceGetRestItems() {

@@ -6,10 +6,8 @@ export const environment = {
   production: false,
   getFileUrl: 'https://api.imgur.com/3/account/me/image/',
   getFilesUrl: 'https://api.imgur.com/3/account/me/images',
-  uploadFileUrl: 'https://api.imgur.com/3/upload',
-  bearer: 'Bearer bca631bf98252ea2696f341413d05692c188c59a',
-
-
+  uploadFileUrl: 'https://api.imgur.com/3/image',
+  bearer: 'Bearer bca631bf98252ea2696f341413d05692c188c59a'
 };
 
 /*

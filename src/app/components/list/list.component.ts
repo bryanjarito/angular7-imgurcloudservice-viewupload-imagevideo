@@ -1,4 +1,4 @@
-import { Component, OnInit, ɵConsole } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { DataService } from '../../services/data.service';
@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { SharedService } from '../../services/shared.service';
 import { Subscription } from 'rxjs';
 import { environment } from '../../../environments/environment';
+import { NgxSpinnerService } from "ngx-spinner";
 
 import CryptoJS from 'crypto-js';
 
@@ -27,7 +28,8 @@ export class ListComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private data: DataService,
-    private sharedService:SharedService
+    private sharedService:SharedService,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
@@ -42,13 +44,14 @@ export class ListComponent implements OnInit {
     })
   }
 
-  getListOfFile() {
-    this.restItemsServiceGetRestItems()
+  async getListOfFile() {
+    this.spinner.show();
+    await this.restItemsServiceGetRestItems()
     .subscribe(
       restItems => {
         this.files = restItems['data'];
-      }
-    )
+        this.spinner.hide();
+    })
   }
 
   restItemsServiceGetRestItems() {
