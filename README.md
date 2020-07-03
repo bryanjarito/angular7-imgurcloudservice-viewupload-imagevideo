@@ -21,11 +21,18 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Features
 
 * Allow uploading and persisting .jpg, .jpeg and .mp4 files
+    - imgur cloud service only allow videos less than 1 minute and file size 200MB
+    - sample files stored at \src\assets\uploads 
 * Show a UI where users can upload new files, and show the list of files uploaded so far
 * Provide a way to "preview" the uploaded files.  For images, we want to see the image, and for mp4's, play the video
-* Write basic tests for your code, and document a way to run them
+* Write basic tests for your code, and document a way to run them - "ng test"
 * Use a responsive layout that works and looks great on desktops and mobile devices
 * Add player controls when previewing mp4 files.  Include controls that allow for:
     - Skipping forward and back 10 seconds
     - Pause/Play
     - Speed up/slow down playback
+
+
+## Bug
+
+Uploading video does not auto refresh table list - need manual refresh

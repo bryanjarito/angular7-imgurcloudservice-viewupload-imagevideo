@@ -50,6 +50,7 @@ export class ListComponent implements OnInit {
     .subscribe(
       restItems => {
         this.files = restItems['data'];
+        console.log(this.files)
         this.spinner.hide();
     })
   }

@@ -14,12 +14,12 @@
         <td>{{file.link}}</td>
         <td>{{file.type}}</td>
         <td>
-          <div *ngIf="file.type == 'image/jpeg'; else video">
+          <div *ngIf="file.type == 'image/jpeg'">
             <a class="btn btn-primary btn-block text-white" (click)="preview(file.id)"><span class="txt"><i class="material-icons">image</i> Preview</span></a>
           </div>
-          <ng-template #video>
+          <div *ngIf="file.type == 'video/mp4'">
             <a class="btn btn-primary btn-block text-white" (click)="preview(file.id)"><span class="txt"><i class="material-icons">play_circle_filled</i> Watch</span></a>
-          </ng-template>
+          </div>
         </td>
       </tr>
     </tbody>
